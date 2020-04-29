@@ -1,7 +1,6 @@
 package com.kpi.is8106.controller;
 
 import com.kpi.is8106.model.Service;
-import com.kpi.is8106.view.Input;
 import com.kpi.is8106.view.Output;
 
 public class Controller {
@@ -32,7 +31,8 @@ public class Controller {
                 output.showApplicants(service.getPoorMarksApplicants());
                 break;
             case 3:
-                output.showApplicants(service.getMarkAboveXxApplicants());
+                int presetMark = output.getPresetMark();
+                output.showApplicants(service.getMarkAbovePresetApplicants(presetMark));
                 break;
             case 4:
                 System.exit(0);

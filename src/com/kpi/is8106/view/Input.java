@@ -6,7 +6,7 @@ public class Input {
 
     private Validator validator;
     private Scanner scanner;
-    private static final int WRONG_MENU_ITEM = -1;
+    private static final int WRONG_ITEM = -1;
 
     public Input() {
         validator = new Validator();
@@ -20,8 +20,20 @@ public class Input {
             return Integer.parseInt(menuItem);
         } else {
             System.out.println("Menu item is invalid, input another menu item");
-            return WRONG_MENU_ITEM;
+            return WRONG_ITEM;
         }
-
     }
+
+    public int inputPresetMark(Output output) {
+        String presetMark;
+        output.showMessage("Enter mark to find applicants have mark above this one:");
+        presetMark = scanner.nextLine();
+        if (Validator.validatePresetMark(presetMark)) {
+            return Integer.parseInt(presetMark);
+        } else {
+            System.out.println("Enter integer value between 0 and 100");
+            return WRONG_ITEM;
+        }
+    }
+
 }

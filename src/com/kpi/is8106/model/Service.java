@@ -16,7 +16,7 @@ public class Service {
 
         int p = 0;
         for( int i = 0; i < applicants.length; i++) {
-            if(applicants[i].getMark() < 60 ) {
+            if (applicants[i].getMark() <= 60) {
                 result[p] = applicants[i];
                 p++;
             }
@@ -25,14 +25,13 @@ public class Service {
         return result;
     }
 
-    public Applicant[] getMarkAboveXxApplicants() {
+    public Applicant[] getMarkAbovePresetApplicants(int presetMark) {
         Applicant[] result= new Applicant[10];
 
         int p = 0;
-        int m = 85;
 
         for( int i = 0; i < applicants.length; i++) {
-            if(applicants[i].getMark() > m ) {
+            if(applicants[i].getMark() >= presetMark ) {
                 result[p] = applicants[i];
                 p++;
             }
