@@ -13,7 +13,7 @@ public class Output {
         System.out.println("MENU");
         System.out.println("1. Show list of all applicants");
         System.out.println("2. Show list of students that has poor marks");
-        System.out.println("3. Show list of students that has marks above 85");
+        System.out.println("3. Show list of students that has marks above preset");
         System.out.println("4. Exit");
     }
 
