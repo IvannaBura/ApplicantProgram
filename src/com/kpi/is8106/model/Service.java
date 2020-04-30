@@ -1,4 +1,5 @@
 package com.kpi.is8106.model;
+import java.util.Arrays;
 
 public class Service {
     private Applicant[] applicants;
@@ -12,32 +13,32 @@ public class Service {
     }
 
     public Applicant[] getPoorMarksApplicants() {
-        Applicant[] result= new Applicant[10];
+        Applicant[] result = new Applicant[applicants.length];
 
-        int p = 0;
+        int counter = 0;
         for( int i = 0; i < applicants.length; i++) {
             if (applicants[i].getMark() <= 60) {
-                result[p] = applicants[i];
-                p++;
+                result[counter] = applicants[i];
+                counter++;
             }
         }
 
-        return result;
+        return Arrays.copyOf(result, counter);
     }
 
     public Applicant[] getMarkAbovePresetApplicants(int presetMark) {
-        Applicant[] result= new Applicant[10];
+        Applicant[] result= new Applicant[applicants.length];
 
-        int p = 0;
+        int counter = 0;
 
         for( int i = 0; i < applicants.length; i++) {
             if(applicants[i].getMark() >= presetMark ) {
-                result[p] = applicants[i];
-                p++;
+                result[counter] = applicants[i];
+                counter++;
             }
         }
 
-        return result;
+        return Arrays.copyOf(result, counter);
 
     }
 

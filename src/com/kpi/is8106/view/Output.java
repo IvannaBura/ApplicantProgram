@@ -36,20 +36,16 @@ public class Output {
     }
 
     public void showApplicants(Applicant[] applicants) {
-        int noOneApplicant = 0;
 
-        for (int i = 0; i < applicants.length; i++) {
-            if (applicants[i] == null) {
-                noOneApplicant++;
-            } else {
+        if (applicants.length == 0 ){
+            System.out.println("Applicants not found");
+        } else {
+            for (int i = 0; i < applicants.length; i++) {
+
                 int n = i + 1;
                 System.out.println("----- Applicant " + n + " -----");
                 System.out.println(applicants[i].toString() + "\n");
             }
-        }
-
-        if (noOneApplicant == applicants.length){
-            System.out.println("Applicants not found");
         }
     }
 

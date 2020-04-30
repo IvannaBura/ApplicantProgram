@@ -13,13 +13,13 @@ public class Input {
         scanner = new Scanner(System.in);
     }
 
-    public int getChooseMenuItem() {
+    public int getChooseMenuItem(Output output) {
         String menuItem;
         menuItem = scanner.nextLine();
         if (Validator.validateMenuItem(menuItem)) {
             return Integer.parseInt(menuItem);
         } else {
-            System.out.println("Menu item is invalid, input another menu item");
+            output.showMessage("Menu item is invalid, input another menu item");
             return WRONG_ITEM;
         }
     }
@@ -31,7 +31,7 @@ public class Input {
         if (Validator.validatePresetMark(presetMark)) {
             return Integer.parseInt(presetMark);
         } else {
-            System.out.println("Enter integer value between 0 and 100");
+            output.showMessage("Enter integer value between 0 and 100");
             return WRONG_ITEM;
         }
     }
