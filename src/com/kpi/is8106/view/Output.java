@@ -20,7 +20,7 @@ public class Output {
     public int getMenuItem() {
         int menuItem;
         while (true) {
-            menuItem = input.getChooseMenuItem();
+            menuItem = input.getChooseMenuItem(this);
             if (menuItem != -1)
                 return menuItem;
         }
@@ -38,7 +38,7 @@ public class Output {
     public void showApplicants(Applicant[] applicants) {
 
         if (applicants.length == 0 ){
-            System.out.println("Applicants not found");
+            System.out.println("Applicants not found.\n");
         } else {
             for (int i = 0; i < applicants.length; i++) {
 

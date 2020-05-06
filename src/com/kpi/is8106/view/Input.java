@@ -1,5 +1,8 @@
 package com.kpi.is8106.view;
 
+import com.kpi.is8106.view.exceptions.WrongMenuItemException;
+import com.kpi.is8106.view.exceptions.WrongPresetMarkException;
+
 import java.util.Scanner;
 
 public class Input {
@@ -16,24 +19,28 @@ public class Input {
     public int getChooseMenuItem(Output output) {
         String menuItem;
         menuItem = scanner.nextLine();
-        if (Validator.validateMenuItem(menuItem)) {
-            return Integer.parseInt(menuItem);
-        } else {
-            output.showMessage("Menu item is invalid, input another menu item");
+        try {
+            Validator.validateMenuItem(menuItem);
+        }
+        catch (WrongMenuItemException e){
+            System.err.println(e.getMessage());
             return WRONG_ITEM;
         }
+        return Integer.parseInt(menuItem);
     }
 
     public int inputPresetMark(Output output) {
         String presetMark;
         output.showMessage("Enter mark to find applicants have mark above this one:");
         presetMark = scanner.nextLine();
-        if (Validator.validatePresetMark(presetMark)) {
-            return Integer.parseInt(presetMark);
-        } else {
-            output.showMessage("Enter integer value between 0 and 100");
+        try {
+            Validator.validatePresetMark(presetMark);
+        }
+        catch (WrongPresetMarkException e){
+            System.err.println(e.getMessage());
             return WRONG_ITEM;
         }
+        return Integer.parseInt(presetMark);
     }
 
 }
