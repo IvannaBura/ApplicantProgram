@@ -23,7 +23,7 @@ public class Input {
             Validator.validateMenuItem(menuItem);
         }
         catch (WrongMenuItemException e){
-            System.err.println(e.getMessage());
+            output.showErrorMessage(e.getMessage());
             return WRONG_ITEM;
         }
         return Integer.parseInt(menuItem);
@@ -37,7 +37,7 @@ public class Input {
             Validator.validatePresetMark(presetMark);
         }
         catch (WrongPresetMarkException e){
-            System.err.println(e.getMessage());
+            output.showErrorMessage(e.getMessage());
             return WRONG_ITEM;
         }
         return Integer.parseInt(presetMark);

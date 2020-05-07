@@ -53,4 +53,8 @@ public class Output {
     public void showMessage(String string){
         System.out.println(string);
     }
+
+    public void showErrorMessage(String string){
+        System.err.println(string);
+    }
 }
