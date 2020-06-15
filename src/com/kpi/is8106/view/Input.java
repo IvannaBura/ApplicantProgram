@@ -1,7 +1,7 @@
 package com.kpi.is8106.view;
 
 import com.kpi.is8106.view.exceptions.WrongMenuItemException;
-import com.kpi.is8106.view.exceptions.WrongPresetMarkException;
+    import com.kpi.is8106.view.exceptions.WrongPresetMarkException;
 
 import java.util.Scanner;
 
@@ -41,6 +41,27 @@ public class Input {
             return WRONG_ITEM;
         }
         return Integer.parseInt(presetMark);
+    }
+
+    public boolean askToSaveFile(Output output) {
+        output.showMessage("Do you need to save the result into file? (y/n)");
+        do {
+            String key;
+            key=scanner.nextLine();
+
+            if (Validator.validateYesNoKey(key)) {
+                return key.equals("Y") || key.equals("y");
+            } else output.showMessage("Key '" + key+ "' is invalid, input another key! (y/n)");
+        } while (true);
+    }
+
+    public String getFilePath(Output output){
+        do {
+            output.showMessage("Enter file path where you need to save this and file name.");
+            String filePath = scanner.nextLine();
+            if (Validator.validateFilePath(filePath)) return filePath;
+            else output.showMessage("File path '" + filePath + "' is invalid, input another file path.\n");
+        } while (true);
     }
 
 }

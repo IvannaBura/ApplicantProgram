@@ -39,16 +39,16 @@ public class Output {
 
         if (applicants.length == 0 ){
             System.out.println("Applicants not found.\n");
-        } else {
-            for (int i = 0; i < applicants.length; i++) {
-
-                int n = i + 1;
-                System.out.println("----- Applicant " + n + " -----");
-                System.out.println(applicants[i].toString() + "\n");
-            }
+            return;
         }
+        System.out.println("ID\t\tApplicant\t\tAddress\t\t"+
+                "Phone number\tMark\n");
+        for (Applicant applicant :
+                applicants) {
+            System.out.print(applicant.toString());
+        }
+        System.out.print("\n");
     }
-
 
     public void showMessage(String string){
         System.out.println(string);
