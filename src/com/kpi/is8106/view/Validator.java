@@ -14,4 +14,13 @@ public class Validator {
             throw new WrongPresetMarkException("Preset mark '" + presetMark +"' is invalid, enter integer value between 0 and 100.");
         }
     }
+
+    static boolean validateYesNoKey(String key) {
+        return key.equals("Y") || key.equals("y") ||
+                key.equals("N") || key.equals("n");
+    }
+
+    static boolean validateFilePath(String filePath){
+        return filePath.matches("([a-zA-Z]:(\\w+)*\\[a-zA-Z0_9]+)?.*");
+    }
 }

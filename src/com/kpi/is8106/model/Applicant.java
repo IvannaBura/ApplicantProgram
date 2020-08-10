@@ -1,6 +1,8 @@
 package com.kpi.is8106.model;
 
-public class Applicant {
+import java.io.Serializable;
+
+public class Applicant implements Serializable{
     private int id;
     private String surname;
     private String name;
@@ -88,11 +90,11 @@ public class Applicant {
 
     @Override
     public String toString() {
-        return "ID: "+id+
-                "\nApplicant: "+surname+" "+name+" "+patronymic+
-                "\nAddress: "+address+
-                "\nPhone number: "+phoneNumber+
-                "\nMark: "+mark;
+        return  id+",\t"
+                +surname+' '+name +" "+patronymic+", "
+                +address+ ", "
+                +phoneNumber+ ", "
+                +mark+"\n";
     }
 
 }
