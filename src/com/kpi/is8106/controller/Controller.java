@@ -3,6 +3,8 @@ package com.kpi.is8106.controller;
 import com.kpi.is8106.model.Applicant;
 import com.kpi.is8106.model.Service;
 import com.kpi.is8106.view.Output;
+import java.io.IOException;
+
 
 
 public class Controller {
@@ -15,7 +17,11 @@ public class Controller {
     }
 
     public void run() {
-        service.setApplicants();
+        try {
+            service.setApplicants();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int instruction;
 
         while (true) {

@@ -1,4 +1,5 @@
 package com.kpi.is8106.model;
+import java.io.IOException;
 import java.util.Arrays;
 import com.kpi.is8106.view.Input;
 import com.kpi.is8106.view.Output;
@@ -19,7 +20,7 @@ public class Service {
         input = new Input();
     }
 
-    public void setApplicants(){
+    public void setApplicants() throws IOException {
         int numberOfApplicants = 10;
         applicants = fileManagement.readDataFromFile("D:\\Ivanka\\Educations\\2course\\4\\" +
                 "JavaTrack\\DataSource.txt", numberOfApplicants);
